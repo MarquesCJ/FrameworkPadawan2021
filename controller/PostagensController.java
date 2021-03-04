@@ -14,6 +14,7 @@ public class PostagensController{
     Request request = new Request( );
     Gson gson = new Gson( );
 
+    //Método responsável traduzir JSON para objeto
     private List<PostagensModel> setGson(String post) {
 
         Type lista = new TypeToken<List<PostagensModel>>(){
@@ -23,6 +24,7 @@ public class PostagensController{
 
     }//fim setGson
 
+    //Método que cria a Lista e a retorna para o View
     public List<PostagensModel> getPosts( ) {
 
         ArrayList<PostagensModel> posts = new ArrayList<>();

@@ -10,7 +10,8 @@ public class Request{
 
    static String apiBase  = "https://jsonplaceholder.typicode.com/";
 
-    public String buscaApi( String endpoint ){
+   //Método que acessa o JSON e a retorna em formato de String
+    public String buscaApi(String endpoint){
 
         String postString = " ";
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class AlbumsView{
 
+    //Método para imprimir a Lista retornada pelo Controller
     public void print( ){
 
         AlbumsController albums = new AlbumsController();

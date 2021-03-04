@@ -14,7 +14,7 @@ public class TodosController{
     Request request = new Request( );
     Gson gson = new Gson( );
 
-
+    //Método responsável traduzir JSON para objeto
     private List<TodosModel> setGson(String todos){
 
         Type lista = new TypeToken<List<TodosModel>>(){
@@ -24,6 +24,7 @@ public class TodosController{
 
     }//fim setGson
 
+    //Método que criar a Lista e a retorna para o View
     public List<TodosModel> getTodos( ){
 
         ArrayList<TodosModel> todos = new ArrayList<>();

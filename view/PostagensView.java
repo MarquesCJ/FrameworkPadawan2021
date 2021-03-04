@@ -9,6 +9,7 @@ public class PostagensView{
 
     PostagensController post = new PostagensController();
 
+    //Método para imprimir a Lista retornada pelo Controller
     public void print( ){
 
         PostagensController posts = new PostagensController();

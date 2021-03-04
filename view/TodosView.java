@@ -6,6 +6,7 @@ import java.util.List;
 
 public class TodosView{
 
+    //Método para imprimir a Lista retornada pelo Controller
     public void print( ){
 
         TodosController todos = new TodosController( );

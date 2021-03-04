@@ -14,6 +14,7 @@ public class AlbumsController{
     Request request = new Request( );
     Gson gson = new Gson( );
 
+    //Método responsável traduzir JSON para objeto
     private List<AlbumsModel> setGson(String album) {
 
         Type lista = new TypeToken<List<AlbumsModel>>(){
@@ -23,6 +24,7 @@ public class AlbumsController{
 
     }//fim setGson
 
+    //Método que criar a Lista e a retorna para o View
     public List<AlbumsModel> getAlbums( ) {
 
         ArrayList<AlbumsModel> albums = new ArrayList<>();

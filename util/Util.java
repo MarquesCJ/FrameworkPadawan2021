@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class Util {
 
+    //Método que recebe o JSON em formato BufferedReader e a retorna em formato String
     public static String converteJsonEmString(BufferedReader buffereReader) throws IOException {
         
         String resposta, jsonEmString = "";

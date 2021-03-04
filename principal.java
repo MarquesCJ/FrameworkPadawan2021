@@ -1,4 +1,3 @@
-
 import view.PostagensView;
 import view.AlbumsView;
 import view.TodosView;
@@ -7,6 +6,7 @@ import java.io.IOException;
 
 public class principal{
 
+    //Metodo para limpar o terminal
     public static void limpaTerminal( )throws IOException, InterruptedException {
         
         if (System.getProperty("os.name").contains("Windows"))
@@ -17,15 +17,19 @@ public class principal{
             Runtime.getRuntime().exec("clear");
 
     }//fim limpaTerminal
+
+    //Metodo principal que obtem o Menu e chama o View
     public static void main(String[] args)throws IOException, InterruptedException{
 
+        limpaTerminal();
         char opc = ' ';
         String flag;
+        String fim;
 
         Scanner entrada;
         Scanner leia;
 
-        System.out.println("Bem vindo!");
+        System.out.println("Gabriel Marques de Oliveira");
         
         while(opc != '4'){
 
@@ -92,7 +96,8 @@ public class principal{
                 System.out.println("\nEncerrando...");
                 System.out.println("Obrigado pela oportunidade");
                 System.out.println("Que a Forca esteja com voces! E eu tambem!");
-                entrada.reset( );
+                fim = leia.nextLine( );
+
 
             }//fim if
 

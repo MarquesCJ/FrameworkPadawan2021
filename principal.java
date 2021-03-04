@@ -1,24 +1,32 @@
 import view.PostagensView;
 import view.AlbumsView;
 import view.TodosView;
-import network.*;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class principal{
 
-    public static void main(String[] args){
+    public static void limpaTerminal( )throws IOException, InterruptedException {
         
-        Request ponto = new Request( );
+        if (System.getProperty("os.name").contains("Windows"))
 
-        int opc = 0;
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO( ).start( ).waitFor( );
+
+        else
+            Runtime.getRuntime().exec("clear");
+
+    }//fim limpaTerminal
+    public static void main(String[] args)throws IOException, InterruptedException{
+
+        char opc = ' ';
         String flag;
 
         Scanner entrada;
         Scanner leia;
-        
+
         System.out.println("Bem vindo!");
         
-        while(opc != 4){
+        while(opc != '4'){
 
             entrada = new Scanner(System.in);
             leia = new Scanner(System.in);
@@ -28,79 +36,74 @@ public class principal{
             System.out.println("Digite 3 para acessar a tela 'TO-DOS'");
             System.out.println("Digite 4 para ENCERRAR");
             System.out.print("Digite o numero da tela que deseja: ");
-
-            try{
-
-                opc = entrada.nextInt();
-
-
-            if(opc < 1 || opc > 4){
-
-                System.out.println("Opcao invalida");
-                System.out.println(" ");
-                System.out.print("Aperte ENTER para retornar ao menu");
-                flag = leia.nextLine( );
-                System.out.println(" ");
-                
-            }//fim if
-
-            else if(opc == 1){
+            opc = entrada.next().charAt(0);
+            
+            if(opc == '1'){
 
                 PostagensView post = new PostagensView();
 
                 System.out.println(" ");
-                System.out.println("POSTAGENS");
+                System.out.println("POSTAGENS\n");
+                System.out.println("Buscando...\n");
                 post.print( );
                 entrada.reset( );
                 System.out.print("Aperte ENTER para retornar ao menu");
                 flag = leia.nextLine( );
                 System.out.println(" ");
+                limpaTerminal( ); 
 
             }//fim if
 
-            else if(opc == 2){
+            else if(opc == '2'){
 
                 AlbumsView albums = new AlbumsView( );
 
                 System.out.println(" ");
-                System.out.println("ALBUMS");
+                System.out.println("ALBUMS\n");
+                System.out.println("Buscando...\n");
                 albums.print( );
                 entrada.reset( );
                 System.out.print("Aperte ENTER para retornar ao menu");
                 flag = leia.nextLine( );
                 System.out.println(" ");
+                limpaTerminal();
 
             }//fim if
 
-            else if(opc == 3){
+            else if(opc == '3'){
 
                 TodosView todos = new TodosView( );
 
                 System.out.println(" ");
-                System.out.println("TO-DOS");
+                System.out.println("TO-DOS\n");
+                System.out.println("Buscando...\n");
                 todos.print( );
                 entrada.reset( );
                 System.out.print("Aperte ENTER para retornar ao menu");
-                flag = leia.nextLine( ); 
+                flag = leia.nextLine( );
                 System.out.println(" ");
+                limpaTerminal( );
 
             }//fim if
 
-            if(opc == 4){
+            else if(opc == '4'){
 
-                System.out.println(" ");
-                System.out.println("Encerrando...");
+                System.out.println("\nEncerrando...");
                 System.out.println("Obrigado pela oportunidade");
+                System.out.println("Que a Forca esteja com voces! E eu tambem!");
                 entrada.reset( );
-                
+
             }//fim if
 
-            }catch(Exception e){
+            else{
 
-                entrada.reset();
-                opc = 0;
+                System.out.println("\nEntrada invalida");
+                System.out.print("\nAperte ENTER para retornar ao menu");
+                flag = leia.nextLine( );
+                System.out.println(" ");
+                limpaTerminal( );
 
-            }//fim catch
+            }//fim else
 
         }//fim while
 

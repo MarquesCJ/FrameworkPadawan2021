@@ -1,6 +1,5 @@
 package network;
 
-import com.google.gson.Gson;
 import util.Util;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -26,10 +25,10 @@ public class Request{
 
         }catch(Exception e){
 
-            System.out.println("Erro");
+            System.out.println("Falha de requisição");
 
-        }//fim catch
-
+        }//end catch
+        
         return postString;
 
     }//fim buscaPost

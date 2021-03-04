@@ -1,14 +1,21 @@
 package view;
 
 import controller.TodosController;
+import model.TodosModel;
+import java.util.List;
 
 public class TodosView{
 
-    TodosController todos = new TodosController( );
-
     public void print( ){
 
-        System.out.println(todos.criarTodos( ));
+        TodosController todos = new TodosController( );
+        List<TodosModel> listTodos  = todos.getTodos();
+
+        for(int i = 0; i < listTodos.size(); i++){
+
+            System.out.println(listTodos.get(i));
+
+        }//fim for
 
     }//fim print
 

@@ -1,22 +1,37 @@
 package controller;
 
+import com.google.gson.reflect.TypeToken;
 import model.PostagensModel;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import network.Request;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import com.google.gson.Gson;
 
 public class PostagensController{
 
     PostagensModel post = new PostagensModel( );
-    
-    public PostagensModel criarPost( ){
-        
-        post.setId(2);
-        post.setUserId(3);
-        post.setBody("quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto");
-        post.setTitle("sunt aut facere repellat provident occaecati excepturi optio reprehenderit");
+    Request request = new Request( );
+    Gson gson = new Gson( );
 
-        return post;
+    private List<PostagensModel> setGson(String post) {
 
-    }//fim void
+        Type lista = new TypeToken<List<PostagensModel>>(){
+        }.getType();
+
+        return new Gson( ).fromJson(post , lista);
+
+    }//fim setGson
+
+    public List<PostagensModel> getPosts( ) {
+
+        ArrayList<PostagensModel> posts = new ArrayList<>();
+        String fullPosts = request.buscaApi("posts");
+
+        posts.addAll(setGson(fullPosts));
+
+        return posts;
+
+    }//fim getPosts
 
 }//fim class

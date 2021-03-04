@@ -1,14 +1,21 @@
 package view;
 
 import controller.AlbumsController;
+import model.AlbumsModel;
+import java.util.List;
 
 public class AlbumsView{
 
-    AlbumsController album = new AlbumsController( );
-
     public void print( ){
 
-        System.out.println(album.criarAlbum());
+        AlbumsController albums = new AlbumsController();
+        List<AlbumsModel> listAlbums  = albums.getAlbums();
+
+        for(int i = 0; i < listAlbums.size(); i++){
+
+            System.out.println(listAlbums.get(i));
+
+        }//fim for
 
     }//fim print
 

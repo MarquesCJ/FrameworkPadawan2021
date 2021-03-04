@@ -1,12 +1,15 @@
 import view.PostagensView;
 import view.AlbumsView;
 import view.TodosView;
+import network.*;
 import java.util.Scanner;
 
 public class principal{
 
     public static void main(String[] args){
         
+        Request ponto = new Request( );
+
         int opc = 0;
         String flag;
 
@@ -25,17 +28,11 @@ public class principal{
             System.out.println("Digite 3 para acessar a tela 'TO-DOS'");
             System.out.println("Digite 4 para ENCERRAR");
             System.out.print("Digite o numero da tela que deseja: ");
-                        
+
             try{
 
                 opc = entrada.nextInt();
-            
-            }catch(Exception e){
-                
-                entrada.reset();
-                opc = 0;
-                   
-            }//fim catch
+
 
             if(opc < 1 || opc > 4){
 
@@ -97,6 +94,13 @@ public class principal{
                 entrada.reset( );
                 
             }//fim if
+
+            }catch(Exception e){
+
+                entrada.reset();
+                opc = 0;
+
+            }//fim catch
 
         }//fim while
 

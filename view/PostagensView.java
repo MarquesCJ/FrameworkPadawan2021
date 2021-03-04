@@ -1,6 +1,9 @@
 package view;
 
 import controller.PostagensController;
+import model.PostagensModel;
+
+import java.util.List;
 
 public class PostagensView{
 
@@ -8,7 +11,14 @@ public class PostagensView{
 
     public void print( ){
 
-        System.out.println(post.criarPost());
+        PostagensController posts = new PostagensController();
+        List<PostagensModel> listPosts  = posts.getPosts();
+
+        for(int i = 0; i < listPosts.size(); i++){
+
+            System.out.println(listPosts.get(i));
+
+        }//fim for
 
     }//fim print
 
